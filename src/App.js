@@ -13,7 +13,7 @@ import data from "./data";
 //   "extra",
 // ];
 
-const PriceFilter = ({ state, setState }) => {
+function PriceFilter ({ state, setState }){
   return (
     <fieldset>
       <legend>Price</legend>
@@ -43,14 +43,16 @@ const PriceFilter = ({ state, setState }) => {
 
 function App() {
   const [state, setState] = React.useState([0, 9]);
-  // const handleChange = event => setState(0, 9);
   return (
     <main>
       <section className="filters">
         <h1>Burger Place</h1>
         <h2>Filters</h2>
         <form>
-          <PriceFilter state={state}></PriceFilter>
+          <PriceFilter
+          state={state}
+          setState={setState}
+          />
         </form>
       </section>
       <section className="dishes">
