@@ -13,7 +13,7 @@ import data from "./data";
 //   "extra",
 // ];
 
-function PriceFilter ({ state, setState }){
+function PriceFilter({ state, setState }) {
   return (
     <fieldset>
       <legend>Price</legend>
@@ -24,6 +24,7 @@ function PriceFilter ({ state, setState }){
         name="minPrice"
         min="0"
         max="9"
+        step="0.25"
         value={state[0]}
         onChange={e => setState([e.target.value, state[1]])}
       />
@@ -34,12 +35,13 @@ function PriceFilter ({ state, setState }){
         name="maxPrice"
         min="0"
         max="9"
+        step="0.25"
         value={state[1]}
         onChange={e => setState([state[0], e.target.value])}
       />
     </fieldset>
   );
-};
+}
 
 function App() {
   const [state, setState] = React.useState([0, 9]);
@@ -49,10 +51,7 @@ function App() {
         <h1>Burger Place</h1>
         <h2>Filters</h2>
         <form>
-          <PriceFilter
-          state={state}
-          setState={setState}
-          />
+          <PriceFilter state={state} setState={setState} />
         </form>
       </section>
       <section className="dishes">
